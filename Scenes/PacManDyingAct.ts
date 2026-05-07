@@ -1,4 +1,4 @@
-import { LoopingTimer, Canvas, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, GameContext } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
 import { Engine } from "../Engine";
@@ -17,7 +17,7 @@ import {GameStorage} from "../GameStorage";
 export class PacManDyingAct extends Act {
 
     private _step: number;
-    private _timer: LoopingTimer;
+    private _timer: PeriodicTimer;
     private _finished: boolean;
 
     constructor() {
@@ -30,13 +30,13 @@ export class PacManDyingAct extends Act {
         MainWindow.actors.pacMan.startDigesting();
         MainWindow.actors.ghosts.forEach(g => g.stopMoving());
 
-        this._timer = new LoopingTimer(2000, () => {
+        this._timer = new PeriodicTimer(2000, () => {
             this._step += 1;
             Engine.gameSounds.pacManDying();
             
             MainWindow.actors.pacMan.startDying();
             
-            this._timer = new LoopingTimer(2000, () => {
+            this._timer = new PeriodicTimer(2000, () => {
                 this._step += 1;
                 this._finished = true;
             });

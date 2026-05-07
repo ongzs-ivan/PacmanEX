@@ -6,7 +6,7 @@ import {
     EggTimer,
     GameContext,
     GeneralSprite,
-    LoopingTimer,
+    PeriodicTimer,
     NullSprite,
     Point,
     Vector2D
@@ -41,8 +41,8 @@ export class GhostTearAct extends Act {
 
     private readonly _pacPositions: StartEndPos;
     private _pacTimer: EggTimer;
-    private _tearTimer: LoopingTimer;
-    private _lookTimer: LoopingTimer;
+    private _tearTimer: PeriodicTimer;
+    private _lookTimer: PeriodicTimer;
 
     private _blinkyPositions: StartEndPos;
     private _blinkyTimer: EggTimer;
@@ -82,14 +82,14 @@ export class GhostTearAct extends Act {
             this.blinkyCaught();
         });
 
-        this._tearTimer = new LoopingTimer(500,
+        this._tearTimer = new PeriodicTimer(500,
             () => {
                 if (this._stage === Stage.TearingBlinky) {
                     this.updateTearAnimation();
                 }
             });
 
-        this._lookTimer = new LoopingTimer(Number.MAX_VALUE, () => { });
+        this._lookTimer = new PeriodicTimer(Number.MAX_VALUE, () => { });
 
         this._pacTimer = new EggTimer(4750, () => { });
 
@@ -177,7 +177,7 @@ export class GhostTearAct extends Act {
         this._blinky.visible = false;
         this.setLookingBlinky(0);
 
-        this._lookTimer = new LoopingTimer(1500, () => {
+        this._lookTimer = new PeriodicTimer(1500, () => {
             this.updateBlinkyLookAnimation();
         });
 

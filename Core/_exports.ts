@@ -2,7 +2,7 @@ export { Sprite } from "./Sprite";
 export { NullSprite } from "./NullSprite";
 export { GeneralSprite } from "./GeneralSprite";
 export { Keyboard } from "./Keyboard";
-export { LoopingTimer } from "./LoopingTimer";
+export { PeriodicTimer } from "./PeriodicTimer";
 export { EggTimer } from "./EggTimer";
 export { Vector2D } from "./Vector2D";
 export { Rect } from "./Rect";

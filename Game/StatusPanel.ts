@@ -1,4 +1,4 @@
-import { LoopingTimer, Canvas, Point, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, Point, GameContext } from "../Core/_exports";
 
 import { PacMan } from "./PacMan";
 import { Engine } from "../Engine";
@@ -9,7 +9,7 @@ export class StatusPanel {
 
     private readonly _creditTextPoint = new Point(10, 30);
 
-    private readonly _timer: LoopingTimer;
+    private readonly _timer: PeriodicTimer;
     private readonly _spriteSheet: HTMLImageElement;
 
     private readonly _fruit: SimpleFruit;
@@ -17,7 +17,7 @@ export class StatusPanel {
     private _tickTock: boolean = true;
 
     constructor(private readonly _canvas: Canvas) {
-        this._timer = new LoopingTimer(250, () => this._tickTock = !this._tickTock);
+        this._timer = new PeriodicTimer(250, () => this._tickTock = !this._tickTock);
         this._spriteSheet = <HTMLImageElement>document.getElementById("spritesheet");
         this._fruit = new SimpleFruit();
     }

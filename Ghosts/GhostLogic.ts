@@ -64,7 +64,7 @@ export class GhostLogic {
                 const index: Direction = avail.indexOf(Direction.Up);
 
                 // special intersection - remove Up from choices
-                if (index !== -1) {
+                if ((index as any) !== -1) {
                     avail.splice(index, 1);
                 }
             }

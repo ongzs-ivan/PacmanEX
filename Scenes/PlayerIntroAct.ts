@@ -1,4 +1,4 @@
-import { LoopingTimer, Canvas, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, GameContext } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
 import { GameAct } from "./GameAct";
@@ -17,7 +17,7 @@ export class PlayerIntroAct extends Act {
     private _progress: number = 0;
     private _finished: boolean;
 
-    private _currentTimer: LoopingTimer;
+    private _currentTimer: PeriodicTimer;
 
     constructor(private readonly _shouldDecreasePacLives: boolean, private readonly _isDemoMode = false) {
         super();
@@ -36,12 +36,12 @@ export class PlayerIntroAct extends Act {
             Engine.gameSounds.playerStart();
         } 
 
-        this._currentTimer = new LoopingTimer(timeToShowPlayerNumberAndHideGhosts, () => {
+        this._currentTimer = new PeriodicTimer(timeToShowPlayerNumberAndHideGhosts, () => {
             this._progress += 1;
             if (this._shouldDecreasePacLives) {
                 MainWindow.gameStats.currentPlayerStats.decreaseLives();
             }
-            this._currentTimer = new LoopingTimer(2000, () => {
+            this._currentTimer = new PeriodicTimer(2000, () => {
 
                 this._finished = true;
             });

@@ -1,4 +1,4 @@
-import { LoopingTimer, Canvas, Point, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, Point, GameContext } from "../Core/_exports";
 import { MainWindow } from "./MainWindow";
 
 export class ScorePanel {
@@ -7,14 +7,14 @@ export class ScorePanel {
     private readonly _highScorePos = new Point(140, 8);
     private readonly _highScoreTextPos = new Point(72, 0);
 
-    private readonly _timer: LoopingTimer;
+    private readonly _timer: PeriodicTimer;
     private readonly _playerOneTextPos = new Point(30, 0);
     private readonly _playerTwoTextPos = new Point(180, 0);
 
     private _tickTock: boolean = true;
 
     constructor(private readonly _canvas: Canvas) {
-        this._timer = new LoopingTimer(250, () => this._tickTock = !this._tickTock);
+        this._timer = new PeriodicTimer(250, () => this._tickTock = !this._tickTock);
     }
 
     update(context: GameContext) {

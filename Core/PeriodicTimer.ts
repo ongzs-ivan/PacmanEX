@@ -1,4 +1,4 @@
-export class LoopingTimer {
+export class PeriodicTimer {
     firesEvery: number;
     currentTime: number;
     callback: () => void;

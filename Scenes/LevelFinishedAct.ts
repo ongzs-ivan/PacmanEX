@@ -1,4 +1,4 @@
-import { LoopingTimer, Canvas, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, GameContext } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
 import { TornGhostChaseAct } from "./TornGhostChaseAct";
@@ -18,7 +18,7 @@ import {BigPacChaseAct} from "./BigPacChaseAct";
 export class LevelFinishedAct extends Act {
 
     private _step: number;
-    private _timer: LoopingTimer;
+    private _timer: PeriodicTimer;
     private _finished: boolean;
 
     constructor() {
@@ -31,11 +31,11 @@ export class LevelFinishedAct extends Act {
         MainWindow.actors.pacMan.startDigesting();
         MainWindow.actors.ghosts.forEach(g => g.stopMoving());
 
-        this._timer = new LoopingTimer(2000, () => {
+        this._timer = new PeriodicTimer(2000, () => {
             this._step += 1;
             MainWindow.actors.maze.startFlashing();
             MainWindow.actors.ghosts.forEach(g => g.visible = false);
-            this._timer = new LoopingTimer(2000, () => {
+            this._timer = new PeriodicTimer(2000, () => {
                 this._step += 1;
                 MainWindow.actors.maze.stopFlashing();
 

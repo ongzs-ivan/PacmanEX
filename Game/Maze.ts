@@ -5,7 +5,7 @@ import { MainWindow } from "./MainWindow";
 import { Tile } from "./Tile";
 import { TileContent } from "./TileContent";
 
-import { LoopingTimer, Canvas, Sprite, Point, Vector2D, GameContext } from "../Core/_exports";
+import { PeriodicTimer, Canvas, Sprite, Point, Vector2D, GameContext } from "../Core/_exports";
 
 export class Maze extends Sprite {
     // the point where the ghost goes to just before going into chase/scatter mode
@@ -32,7 +32,7 @@ export class Maze extends Sprite {
         new Point(27, 24)
     ];
 
-    private readonly _timer: LoopingTimer;
+    private readonly _timer: PeriodicTimer;
 
     private readonly _originalImage: HTMLImageElement;
     private readonly _directionChoices = new DirectionChoices();
@@ -47,7 +47,7 @@ export class Maze extends Sprite {
     constructor() {
         super();
         this._powerPill = new PowerPill();
-        this._timer = new LoopingTimer(250, () => this._tickTock = !this._tickTock);
+        this._timer = new PeriodicTimer(250, () => this._tickTock = !this._tickTock);
 
         this._originalImage = document.createElement("img");
         this._originalImage.src = "img/spritesheet.png";

@@ -1,4 +1,4 @@
-import { LoopingTimer, GameContext } from "../Core/_exports";
+import { PeriodicTimer, GameContext } from "../Core/_exports";
 
 import { LevelProps } from "./LevelProps";
 
@@ -15,7 +15,7 @@ export class GhostFrightSession {
     private _flashesLeft: number;
     private _timeLeftToStartFlashing: number;
     private _tickTock: boolean;
-    private _timer: LoopingTimer;
+    private _timer: PeriodicTimer;
     
     constructor(levelProps: LevelProps) {
         this._amountOfGhostsEaten = 0;
@@ -23,7 +23,7 @@ export class GhostFrightSession {
         this._flashesLeft = levelProps.frightGhostFlashes;
 
         this._timeLeftToStartFlashing = this._timeLeft - (this._flashesLeft*this.eachFlashDurationMs);
-        this._timer = new LoopingTimer(this.eachFlashDurationMs, ()=>this._tickTock = !this._tickTock);
+        this._timer = new PeriodicTimer(this.eachFlashDurationMs, ()=>this._tickTock = !this._tickTock);
     }
 
     update(context: GameContext) {

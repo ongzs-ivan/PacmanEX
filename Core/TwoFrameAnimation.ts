@@ -1,12 +1,12 @@
 import { GameContext } from "./GameContext";
-import { LoopingTimer } from "./LoopingTimer";
+import { PeriodicTimer } from "./PeriodicTimer";
 
 export class TwoFrameAnimation {
-    timer: LoopingTimer;
+    timer: PeriodicTimer;
     flag: boolean;
 
     constructor(switchEveryMs: number) {
-        this.timer = new LoopingTimer(switchEveryMs, () => this.flag = !this.flag);
+        this.timer = new PeriodicTimer(switchEveryMs, () => this.flag = !this.flag);
     }
 
     run(context: GameContext): void {
