@@ -1,9 +1,9 @@
 import { GameContext, Point } from "../Core/_exports";
 
 import { Engine } from "../Engine";
-import { GhostMovementConductor } from "./Ghosts/GhostMovementConductor";
+import { GhostMovementConductor } from "./Behavior/GhostMovementConductor";
 import { GhostFrightEvent } from "./Events/GhostFrightEvent";
-import { GhostNickname } from "./Ghosts/GhostNickname";
+import { GhostNickname } from "./Behavior/GhostNickname";
 import { LevelStats } from "./LevelStats";
 import { GhostHouseDoor } from "./GhostHouseDoor";
 

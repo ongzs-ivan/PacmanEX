@@ -1,5 +1,5 @@
 import { Direction } from "../Game/_exports";
-import { GhostNickname } from "../Game/Ghosts/_exports";
+import { GhostNickname } from "../Game/Behavior/_exports";
 
 import {
     Canvas,

@@ -1,5 +1,7 @@
-import { MainWindow, PowerPill, Direction } from "../Game/_exports";
-import { SimpleGhost, GhostNickname } from "../Game/Ghosts/_exports";
+import { MainWindow, Direction } from "../Game/_exports";
+import { SimpleGhost } from "../Game/Actors/SimpleGhost";
+import { PowerPill } from "../Game/Actors/PowerPill";
+import { GhostNickname } from "../Game/Behavior/GhostNickname";
 import { Canvas, GameContext, Keyboard, Point, Vector2D } from "../Core/_exports";
 
 import { PlayerIntroAct } from "./PlayerIntroAct";

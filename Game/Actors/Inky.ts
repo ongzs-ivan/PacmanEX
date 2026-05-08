@@ -1,15 +1,15 @@
 import { Canvas, Point } from "../../Core/_exports";
 import { MainWindow, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
 
-import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
-import { GhostState } from "./GhostState";
+import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
+import { GhostState } from "../Behavior/GhostState";
 import { Diags } from "../../Game/Diags";
 import { Tile } from "../../Game/Tile";
 import { Blinky } from "./Blinky";
-import { GhostNickname } from "./GhostNickname";
+import { GhostNickname } from "../Behavior/GhostNickname";
 import { Ghost } from "./Ghost";
-import { DirectionInfo } from "./DirectionInfo";
-import {GhostMovementMode} from "./GhostMovementMode";
+import { DirectionInfo } from "../Behavior/DirectionInfo";
+import {GhostMovementMode} from "../Behavior/GhostMovementMode";
 
 
 export class Inky extends Ghost {

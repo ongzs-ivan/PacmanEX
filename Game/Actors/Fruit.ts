@@ -1,7 +1,7 @@
-import { Canvas, SingleTimer, GameContext, Point, Sprite, Vector2D } from "../Core/_exports";
-import { Tile } from "./Tile";
-import { MainWindow } from "./MainWindow";
-import { FruitItem } from "./FruitItem";
+import { Canvas, SingleTimer, GameContext, Point, Sprite, Vector2D } from "../../Core/_exports";
+import { Tile } from "../Tile";
+import { MainWindow } from "../MainWindow";
+import { FruitItem } from "../FruitItem";
 
 
 export class SimpleFruit extends Sprite {

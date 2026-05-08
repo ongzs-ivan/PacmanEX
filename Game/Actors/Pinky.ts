@@ -1,12 +1,12 @@
 import { Tile, MainWindow, Diags, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
 import { Canvas, Point } from "../../Core/_exports";
 
-import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
-import { GhostState } from "./GhostState";
+import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
+import { GhostState } from "../Behavior/GhostState";
 import { Ghost } from "./Ghost";
-import { GhostNickname } from "./GhostNickname";
-import { DirectionInfo } from "./DirectionInfo";
-import {GhostMovementMode} from "./GhostMovementMode";
+import { GhostNickname } from "../Behavior/GhostNickname";
+import { DirectionInfo } from "../Behavior/DirectionInfo";
+import {GhostMovementMode} from "../Behavior/GhostMovementMode";
 
 export class Pinky extends Ghost {
     constructor(public readonly maze: Maze) {

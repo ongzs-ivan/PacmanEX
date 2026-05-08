@@ -3,7 +3,7 @@ import { LevelStats, Direction, GhostFrightEvent } from "../Game/_exports";
 
 import { Engine } from "../Engine";
 import { ActUpdateResult } from "./ActUpdateResult";
-import { DirectionInfo, GhostNickname } from "../Game/Ghosts/_exports";
+import { DirectionInfo, GhostNickname } from "../Game/Behavior/_exports";
 import { AttractScenePacMan } from "./AttractScenePacMan";
 import { Act } from "./Act";
 import { AttractGhost } from "./AttractGhost";

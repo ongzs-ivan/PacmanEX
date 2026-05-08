@@ -1,9 +1,9 @@
 import { PeriodicTimer, Canvas, Point, GameContext } from "../Core/_exports";
 
-import { PacMan } from "./PacMan";
 import { Engine } from "../Engine";
-import { SimpleFruit } from "./Fruit";
-import {MainWindow} from "./MainWindow";
+import { MainWindow } from "./MainWindow";
+import { PacMan } from "./Actors/PacMan";
+import { SimpleFruit } from "./Actors/Fruit";
 
 export class StatusPanel {
 

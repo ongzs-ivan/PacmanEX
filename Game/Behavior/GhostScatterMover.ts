@@ -1,6 +1,6 @@
 import { Maze } from "../../Game/_exports";
 
-import { Ghost } from "./Ghost";
+import { Ghost } from "../Actors/Ghost";
 import { GhostMovementMode } from "./GhostMovementMode";
 import { GhostMover } from "./GhostMover";
 

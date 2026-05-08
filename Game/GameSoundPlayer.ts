@@ -1,6 +1,6 @@
 import { SoundPlayer, SoundLoader, SoundName } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
-import { GhostState } from "./Ghosts/_exports";
+import { GhostState } from "./Behavior/_exports";
 
 declare var Howler: any;
 

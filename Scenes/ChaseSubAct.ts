@@ -1,6 +1,8 @@
-import { LevelStats, GhostFrightEvent, TimedSprite, TimedSpriteList, Pill, PowerPill, ScoreSprite, Direction } from "../Game/_exports";
+import { LevelStats, GhostFrightEvent, TimedSprite, TimedSpriteList, ScoreSprite, Direction } from "../Game/_exports";
+import { Pill } from "../Game/Actors/Pill";
+import { PowerPill } from "../Game/Actors/PowerPill";
 import { SingleTimer, Canvas, GameContext, Point } from "../Core/_exports";
-import { GhostNickname } from "../Game/Ghosts/_exports";
+import { GhostNickname } from "../Game/Behavior/_exports";
 
 import { ActUpdateResult } from "./ActUpdateResult";
 import { AttractScenePacMan } from "./AttractScenePacMan";

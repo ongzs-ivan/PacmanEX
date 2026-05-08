@@ -1,15 +1,17 @@
-import { Canvas, Sprite, Point, Vector2D, Keyboard, GameContext, TwoFrameAnimation } from "../Core/_exports";
-import { Direction } from "./Direction";
-import { DirectionToIndexLookup } from "./DirectionToIndexLookup";
-import { Tile } from "./Tile";
+import { Canvas, Sprite, Point, Vector2D, Keyboard, GameContext, TwoFrameAnimation } from "../../Core/_exports";
+
 import { IActor } from "./IActor";
-import { TileContent } from "./TileContent";
-import { MainWindow } from "./MainWindow";
-import { Constants } from "./Constants";
-import { DemoKeyPresses } from "./DemoKeyPresses";
-import { LifeStatus } from "./LifeStatus";
-import { KeyPressedEvent } from "./KeyPressedEvent";
-import { FramePointers } from "./FramePointers";
+
+import { MainWindow } from "../MainWindow";
+import { Direction } from "../Direction";
+import { DirectionToIndexLookup } from "../DirectionToIndexLookup";
+import { Tile } from "../Tile";
+import { TileContent } from "../TileContent";
+import { Constants } from "../Constants";
+import { DemoKeyPresses } from "../DemoKeyPresses";
+import { LifeStatus } from "../LifeStatus";
+import { KeyPressedEvent } from "../KeyPressedEvent";
+import { FramePointers } from "../FramePointers";
 
 export class PacMan extends Sprite implements IActor {
     static readonly facingLeftSpritesheetPos = new Point(455, 16);

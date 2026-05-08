@@ -1,7 +1,12 @@
-import { GhostNickname, Ghost, Inky, Pinky, Blinky, Clyde } from "./Ghosts/_exports";
+import { GhostNickname} from "../Behavior/_exports";
+import { Ghost} from "./Ghost";
+import { Inky } from "./Inky";
+import { Pinky } from "./Pinky";
+import { Blinky } from "./Blinky";
+import { Clyde } from "./Clyde";
 
 import { Fruit } from "./Fruit";
-import { Maze } from "./Maze";
+import { Maze } from "../Maze";
 import { PacMan } from "./PacMan";
 
 export class Actors {

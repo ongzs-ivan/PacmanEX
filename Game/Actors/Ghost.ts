@@ -1,17 +1,18 @@
 import { GameContext, Keyboard, Point, Vector2D } from "../../Core/_exports";
-import { MainWindow, Constants, GhostFrightEvent, Tile, IActor, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
+import { MainWindow, Constants, GhostFrightEvent, Tile, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
 
-import { GhostEyesBackToHouseMover } from "./GhostEyesBackToHouseMover";
-import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
-import { GhostScatterMover } from "./GhostScatterMover";
-import { GhostChaseMover } from "./GhostChaseMover";
+import { GhostEyesBackToHouseMover } from "../Behavior/GhostEyesBackToHouseMover";
+import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
+import { GhostScatterMover } from "../Behavior/GhostScatterMover";
+import { GhostChaseMover } from "../Behavior/GhostChaseMover";
+import { IActor } from "./IActor";
 import { SimpleGhost } from "./SimpleGhost";
-import { GhostState } from "./GhostState";
-import { GhostNickname } from "./GhostNickname";
-import { GhostFrightenedMover } from "./GhostFrightenedMover";
-import { GhostMover } from "./GhostMover";
-import { DirectionInfo } from "./DirectionInfo";
-import {GhostMovementMode} from "./GhostMovementMode";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostNickname } from "../Behavior/GhostNickname";
+import { GhostFrightenedMover } from "../Behavior/GhostFrightenedMover";
+import { GhostMover } from "../Behavior/GhostMover";
+import { DirectionInfo } from "../Behavior/DirectionInfo";
+import {GhostMovementMode} from "../Behavior/GhostMovementMode";
 
 export class Ghost extends SimpleGhost implements IActor {
     protected houseOffset: number;

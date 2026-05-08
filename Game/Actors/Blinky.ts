@@ -1,10 +1,10 @@
 import { Canvas, Point } from "../../Core/_exports";
 import { MainWindow, Diags, Direction, Maze } from "../../Game/_exports";
 
-import { GhostState } from "./GhostState";
-import { GhostNickname } from "./GhostNickname";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostNickname } from "../Behavior/GhostNickname";
 import { Ghost } from "./Ghost";
-import {GhostMovementMode} from "./GhostMovementMode";
+import  {GhostMovementMode } from "../Behavior//GhostMovementMode";
 
 export class Blinky extends Ghost {
     private readonly _scatterTarget = new Point(25, 0);

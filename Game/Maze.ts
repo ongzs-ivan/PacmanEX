@@ -1,4 +1,4 @@
-import { PowerPill } from "./PowerPill";
+import { PowerPill } from "./Actors/PowerPill";
 import { Direction } from "./Direction";
 import { DirectionChoices } from "./DirectionChoices";
 import { MainWindow } from "./MainWindow";

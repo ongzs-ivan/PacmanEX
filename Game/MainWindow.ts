@@ -1,5 +1,5 @@
 import { Engine } from "../Engine";
-import { Ghost } from "./Ghosts/_exports";
+import { Ghost } from "./Actors/Ghost";
 import { Keyboard, SingleTimer, SceneUpdateResult, Point, Canvas, GameContext, Vector2D } from "../Core/_exports";
 import { Act, PacManDyingAct, LevelFinishedAct, ActUpdateResult, AttractAct} from "../Scenes/_exports";
 
@@ -9,7 +9,7 @@ import { ScoreSprite } from "./ScoreSprite";
 import { GameStats } from "./GameStats";
 import { StatusPanel } from "./StatusPanel";
 import { ScorePanel } from "./ScorePanel";
-import {Actors} from "./Actors";
+import {Actors} from "./Actors/Actors";
 
 
 export class MainWindow {

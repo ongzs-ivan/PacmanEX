@@ -2,7 +2,7 @@ import { Direction, Maze } from "../../Game/_exports";
 import { GameContext, Point, Vector2D } from "../../Core/_exports";
 
 import { GhostMovementMode } from "./GhostMovementMode";
-import { Ghost} from "./Ghost";
+import { Ghost} from "../Actors/Ghost";
 import { GhostMover } from "./GhostMover";
 import { DirectionInfo } from "./DirectionInfo";
 import {MovementResult} from "./MovementResult";

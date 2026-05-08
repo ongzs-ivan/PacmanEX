@@ -1,4 +1,4 @@
-import { GhostNickname } from "./Ghosts/GhostNickname";
+import { GhostNickname } from "./Behavior/GhostNickname";
 
 export class DotCounter {
     protected _counter: number;

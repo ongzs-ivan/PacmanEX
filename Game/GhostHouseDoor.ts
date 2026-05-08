@@ -1,5 +1,6 @@
 import { GameContext } from "../Core/_exports";
-import { Ghost, GhostNickname } from "./Ghosts/_exports";
+import { Ghost } from "./Actors/Ghost";
+import { GhostNickname } from "./Behavior/_exports";
 
 import { GlobalDotCounter, DotCounter } from "./DotCounter";
 import { MainWindow } from "./MainWindow";

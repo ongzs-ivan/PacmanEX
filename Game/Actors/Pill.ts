@@ -1,4 +1,4 @@
-import { GeneralSprite, Point, Vector2D } from "../Core/_exports";
+import { GeneralSprite, Point, Vector2D } from "../../Core/_exports";
 
 export class Pill extends GeneralSprite {
     constructor() {

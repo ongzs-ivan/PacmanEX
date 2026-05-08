@@ -3,7 +3,7 @@ import { Point, GameContext } from "../../Core/_exports";
 
 import { GhostLogic } from "./GhostLogic";
 import { GhostMovementMode } from "./GhostMovementMode";
-import { Ghost } from "./Ghost";
+import { Ghost } from "../Actors/Ghost";
 import {MovementResult} from "./MovementResult";
 
 /**

@@ -1,13 +1,14 @@
 import { Canvas, GameContext, Point, Sprite, TwoFrameAnimation, Vector2D } from "../../Core/_exports";
+
 import { GhostFrightEvent, Direction } from "../../Game/_exports";
-import { GhostSpritesheetInfo } from "./GhostSpritesheetInfo";
-import { GhostState } from "./GhostState";
-import { GhostNickname } from "./GhostNickname";
-import { DirectionInfo } from "./DirectionInfo";
-import { EyesSpritesheetInfo } from "./EyesSpritesheetInfo";
-import { FrightenedSpritesheet } from "./FrightenedSpritesheet";
-import { GhostSpritesheet } from "./GhostSpritesheet";
-import {GhostMovementMode} from "./GhostMovementMode";
+import { GhostSpritesheetInfo } from "../Behavior/GhostSpritesheetInfo";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostNickname } from "../Behavior/GhostNickname";
+import { DirectionInfo } from "../Behavior/DirectionInfo";
+import { EyesSpritesheetInfo } from "../Behavior/EyesSpritesheetInfo";
+import { FrightenedSpritesheet } from "../Behavior/FrightenedSpritesheet";
+import { GhostSpritesheet } from "../Behavior/GhostSpritesheet";
+import { GhostMovementMode } from "../Behavior/GhostMovementMode";
 import { Ghost } from "./Ghost";
 
 export class SimpleGhost extends Sprite {

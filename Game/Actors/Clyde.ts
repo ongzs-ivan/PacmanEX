@@ -1,12 +1,12 @@
 import { Canvas, Vector2D, Point } from "../../Core/_exports";
 import { MainWindow, Diags, Direction, Maze } from "../../Game/_exports";
 
-import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
-import { GhostState } from "./GhostState";
-import { GhostNickname } from "./GhostNickname";
+import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostNickname } from "../Behavior/GhostNickname";
 import { Ghost } from "./Ghost";
-import { DirectionInfo } from "./DirectionInfo";
-import {GhostMovementMode} from "./GhostMovementMode";
+import { DirectionInfo } from "../Behavior/DirectionInfo";
+import {GhostMovementMode} from "../Behavior/GhostMovementMode";
 
 export class Clyde extends Ghost {
     private readonly _scatterTarget = new Point(0, 29);

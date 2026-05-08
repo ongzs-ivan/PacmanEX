@@ -1,6 +1,6 @@
 import { Point } from "../Core/_exports";
 
-import { GhostsLevelPatternProperties } from "./Ghosts/GhostsLevelPatternProperties";
+import { GhostsLevelPatternProperties } from "./Behavior/GhostsLevelPatternProperties";
 import { IntroCutScene } from "./IntroCutScene";
 import { FruitItem } from "./FruitItem";
 import { LevelProps } from "./LevelProps";
