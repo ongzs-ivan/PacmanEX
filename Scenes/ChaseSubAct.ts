@@ -1,6 +1,6 @@
-import { LevelStats, GhostFrightSession, TimedSprite, TimedSpriteList, Pill, PowerPill, ScoreSprite, Direction } from "../Game/_exports";
-import { EggTimer, Canvas, GameContext, Point } from "../Core/_exports";
-import { GhostNickname } from "../Ghosts/_exports";
+import { LevelStats, GhostFrightEvent, TimedSprite, TimedSpriteList, Pill, PowerPill, ScoreSprite, Direction } from "../Game/_exports";
+import { SingleTimer, Canvas, GameContext, Point } from "../Core/_exports";
+import { GhostNickname } from "../Game/Ghosts/_exports";
 
 import { ActUpdateResult } from "./ActUpdateResult";
 import { AttractScenePacMan } from "./AttractScenePacMan";
@@ -8,12 +8,12 @@ import { AttractGhost } from "./AttractGhost";
 import {StartEndPos} from "./StartEndPos";
 
 class TimerList {
-    private _timers: EggTimer[];
+    private _timers: SingleTimer[];
     constructor() {
         this._timers = [];
     }
 
-    add(timer: EggTimer) {
+    add(timer: SingleTimer) {
         this._timers.push(timer);
     }
 
@@ -59,12 +59,12 @@ export class ChaseSubAct {
 
     private _ghostPositions: IGhostPositions;
 
-    private _ghostTimer: EggTimer;
-    private _pacTimer: EggTimer;
+    private _ghostTimer: SingleTimer;
+    private _pacTimer: SingleTimer;
 
-    private _ghostEatenTimer: EggTimer;
+    private _ghostEatenTimer: SingleTimer;
 
-    private _timers: EggTimer[];
+    private _timers: SingleTimer[];
     private _tempSprites: TimedSpriteList;
 
     private _finished: boolean;
@@ -83,9 +83,9 @@ export class ChaseSubAct {
 
         let justOffScreen = new Point(250, 140);
 
-        this._ghostEatenTimer = new EggTimer(0, () => { });
-        this._ghostTimer = new EggTimer(5000, () => { this.reverseChase(); });
-        this._pacTimer = new EggTimer(5100, () => { });
+        this._ghostEatenTimer = new SingleTimer(0, () => { });
+        this._ghostTimer = new SingleTimer(5000, () => { this.reverseChase(); });
+        this._pacTimer = new SingleTimer(5100, () => { });
         this._powerPillToEat = new PowerPill();
         this._powerPillToEat.visible = false;
 
@@ -138,13 +138,13 @@ export class ChaseSubAct {
         this._clyde.position = startPos;
         this._ghostPositions[this._clyde.nickName] = new StartEndPos(startPos, endPos);
 
-        this._tempTimers.add(new EggTimer(1000, () => this._legendVisible = true));
-        this._tempTimers.add(new EggTimer(3000, () => {
+        this._tempTimers.add(new SingleTimer(1000, () => this._legendVisible = true));
+        this._tempTimers.add(new SingleTimer(3000, () => {
             this._powerPillToEat.visible = true;
             this._copyrightVisible = true;
         }));
 
-        this._tempTimers.add(new EggTimer(4500, () => {
+        this._tempTimers.add(new SingleTimer(4500, () => {
             this._ghostsChasing = true;
         }));
     }
@@ -185,7 +185,7 @@ export class ChaseSubAct {
                 this.ghostEaten(g);
                 if (g.nickName === GhostNickname.Clyde) {
 
-                    this._tempTimers.add(new EggTimer(1000, () => {
+                    this._tempTimers.add(new SingleTimer(1000, () => {
                         this._finished = true;
                     }));
                 }
@@ -236,7 +236,7 @@ export class ChaseSubAct {
         this.showScore(ghost.position, this._ghostScore);
         this._ghostScore *= 2;
 
-        this._ghostEatenTimer = new EggTimer(1000, () => {
+        this._ghostEatenTimer = new SingleTimer(1000, () => {
             this._ghostTimer.resume();
             this._pacTimer.resume();
             this._pacMan.visible = true;
@@ -262,11 +262,11 @@ export class ChaseSubAct {
 
     reverseChase() {
         this._powerPillToEat.visible = false;
-        this._ghostTimer = new EggTimer(12000, () => { });
-        this._pacTimer = new EggTimer(6000, () => { });
+        this._ghostTimer = new SingleTimer(12000, () => { });
+        this._pacTimer = new SingleTimer(6000, () => { });
 
         const s = new LevelStats(0);
-        const sess = new GhostFrightSession(s.levelProps);
+        const sess = new GhostFrightEvent(s.levelProps);
 
         this._ghosts.forEach(g => {
             g.direction.update(Direction.Right);

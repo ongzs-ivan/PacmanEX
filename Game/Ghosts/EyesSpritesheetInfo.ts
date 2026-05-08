@@ -1,5 +1,5 @@
-import { Point } from "../Core/_exports";
-import { Direction } from "../Game/_exports";
+import { Point } from "../../Core/_exports";
+import { Direction } from "../../Game/_exports";
 
 export class EyesSpritesheetInfo {
     private readonly _positions: Point[];

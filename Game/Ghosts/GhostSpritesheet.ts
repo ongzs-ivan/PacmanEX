@@ -1,4 +1,4 @@
-﻿import { FramePair, Point } from "../Core/_exports";
+﻿import { FramePair, Point } from "../../Core/_exports";
 import { EyesSpritesheetInfo } from "./EyesSpritesheetInfo";
 import { FrightenedSpritesheet } from "./FrightenedSpritesheet";
 import { GhostSpritesheetInfo } from "./GhostSpritesheetInfo";

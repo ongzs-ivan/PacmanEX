@@ -1,4 +1,4 @@
-import { Direction } from "../Game/_exports";
+import { Direction } from "../../Game/_exports";
 
 export class DirectionInfo {
     constructor(private _current: Direction, private _next: Direction) {

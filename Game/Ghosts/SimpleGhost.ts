@@ -1,5 +1,5 @@
-import { Canvas, GameContext, Point, Sprite, TwoFrameAnimation, Vector2D } from "../Core/_exports";
-import { GhostFrightSession, Direction } from "../Game/_exports";
+import { Canvas, GameContext, Point, Sprite, TwoFrameAnimation, Vector2D } from "../../Core/_exports";
+import { GhostFrightEvent, Direction } from "../../Game/_exports";
 import { GhostSpritesheetInfo } from "./GhostSpritesheetInfo";
 import { GhostState } from "./GhostState";
 import { GhostNickname } from "./GhostNickname";
@@ -8,6 +8,7 @@ import { EyesSpritesheetInfo } from "./EyesSpritesheetInfo";
 import { FrightenedSpritesheet } from "./FrightenedSpritesheet";
 import { GhostSpritesheet } from "./GhostSpritesheet";
 import {GhostMovementMode} from "./GhostMovementMode";
+import { Ghost } from "./Ghost";
 
 export class SimpleGhost extends Sprite {
     visible: boolean;
@@ -27,7 +28,7 @@ export class SimpleGhost extends Sprite {
     protected _state: GhostState;
 
     private _toggle = new TwoFrameAnimation(65);
-    private _frightSession: GhostFrightSession;
+    private _frightSession: GhostFrightEvent;
 
     constructor(public readonly nickName: GhostNickname, direction: Direction) {
         super();
@@ -45,7 +46,7 @@ export class SimpleGhost extends Sprite {
         this._spritesheetPos = this.spritesheetInfoNormal.getSourcePosition(this._direction.nextDirection, true);
     }
 
-    set frightSession(session: GhostFrightSession) {
+    set frightSession(session: GhostFrightEvent) {
         this._frightSession = session;
     }
 
@@ -111,7 +112,7 @@ export class SimpleGhost extends Sprite {
         }
     }
 
-    powerPillEaten(session: GhostFrightSession) {
+    powerPillEaten(session: GhostFrightEvent) {
         this._frightSession = session;
     }
 

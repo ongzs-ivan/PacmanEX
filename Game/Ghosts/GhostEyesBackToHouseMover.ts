@@ -1,5 +1,5 @@
-import { Direction, Maze } from "../Game/_exports";
-import { GameContext, Point, Vector2D } from "../Core/_exports";
+import { Direction, Maze } from "../../Game/_exports";
+import { GameContext, Point, Vector2D } from "../../Core/_exports";
 
 import { GhostMovementMode } from "./GhostMovementMode";
 import { Ghost} from "./Ghost";

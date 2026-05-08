@@ -1,9 +1,9 @@
 import { GameContext, Point } from "../Core/_exports";
 
 import { Engine } from "../Engine";
-import { GhostMovementConductor } from "../Ghosts/GhostMovementConductor";
-import { GhostFrightSession } from "./GhostFrightSession";
-import { GhostNickname } from "../Ghosts/GhostNickname";
+import { GhostMovementConductor } from "./Ghosts/GhostMovementConductor";
+import { GhostFrightEvent } from "./Events/GhostFrightEvent";
+import { GhostNickname } from "./Ghosts/GhostNickname";
 import { LevelStats } from "./LevelStats";
 import { GhostHouseDoor } from "./GhostHouseDoor";
 
@@ -16,7 +16,7 @@ export class PlayerStats {
     private _playerIndex: number;
     private _extraLives: number[];
     private _levelNumber: number;
-    private _ghostFrightSession: GhostFrightSession;
+    private _ghostFrightEvent: GhostFrightEvent;
 
     private _ghostMovementConductor: GhostMovementConductor;
 
@@ -34,8 +34,8 @@ export class PlayerStats {
     }
 
     update(context: GameContext) {
-        if (this._ghostFrightSession !== undefined && !this._ghostFrightSession.isFinished) {
-            this._ghostFrightSession.update(context);
+        if (this._ghostFrightEvent !== undefined && !this._ghostFrightEvent.isFinished) {
+            this._ghostFrightEvent.update(context);
         } else {
             this._ghostMovementConductor.update(context);
         }
@@ -97,11 +97,11 @@ export class PlayerStats {
 
     fruitEaten() {
         this.increaseScoreBy(this._levelStats.levelProps.fruitPoints);
-        this.levelStats.fruitSession.fruitEaten();
+        this.levelStats.fruitEvent.fruitEaten();
     }
 
-    get frightSession(): GhostFrightSession {
-        return this._ghostFrightSession;
+    get frightSession(): GhostFrightEvent {
+        return this._ghostFrightEvent;
     }
 
     get isInFrightSession(): boolean {
@@ -109,7 +109,7 @@ export class PlayerStats {
     }
 
     powerPillEaten(point: Point) {
-        this._ghostFrightSession = new GhostFrightSession(this._levelStats.levelProps);
+        this._ghostFrightEvent = new GhostFrightEvent(this._levelStats.levelProps);
 
         this._ghostHouseDoor.pillEaten();
         this.increaseScoreBy(50);
@@ -129,7 +129,7 @@ export class PlayerStats {
     }
 
     ghostEaten(): number {
-        const points = this._ghostFrightSession.ghostEaten();
+        const points = this._ghostFrightEvent.ghostEaten();
 
         this.increaseScoreBy(points);
 

@@ -1,5 +1,5 @@
-import { Maze, Direction, DirectionToIndexLookup } from "../Game/_exports";
-import { Point, GameContext } from "../Core/_exports";
+import { Maze, Direction, DirectionToIndexLookup } from "../../Game/_exports";
+import { Point, GameContext } from "../../Core/_exports";
 
 import { GhostLogic } from "./GhostLogic";
 import { GhostMovementMode } from "./GhostMovementMode";

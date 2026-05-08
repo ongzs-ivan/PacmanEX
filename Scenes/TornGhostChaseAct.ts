@@ -1,4 +1,4 @@
-import { Canvas, EggTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
+import { Canvas, SingleTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
 import { Direction } from "../Game/_exports";
 
 import { Engine } from "../Engine";
@@ -15,10 +15,10 @@ export class TornGhostChaseAct extends Act {
     private readonly _blinky: GeneralSprite;
 
     private readonly _pacPositions: StartEndPos;
-    private readonly _pacTimer: EggTimer;
+    private readonly _pacTimer: SingleTimer;
 
     private _ghostStartEndPos: StartEndPos;
-    private _ghostTimer: EggTimer;
+    private _ghostTimer: SingleTimer;
 
     private _finished: boolean;
 
@@ -30,11 +30,11 @@ export class TornGhostChaseAct extends Act {
 
         const justOffScreen = new Point(250, 140);
 
-        this._ghostTimer = new EggTimer(4500, () => {
+        this._ghostTimer = new SingleTimer(4500, () => {
             this.reverseChase();
         });
 
-        this._pacTimer = new EggTimer(4800, () => { });
+        this._pacTimer = new SingleTimer(4800, () => { });
 
         this._pacMan = new AttractScenePacMan();
         this._pacMan.direction = Direction.Left;
@@ -103,7 +103,7 @@ export class TornGhostChaseAct extends Act {
     }
 
     private reverseChase() {
-        this._ghostTimer = new EggTimer(4600, () => { this._finished = true; });
+        this._ghostTimer = new SingleTimer(4600, () => { this._finished = true; });
 
         this._pacMan.visible = false;
         this._blinky.visible = false;

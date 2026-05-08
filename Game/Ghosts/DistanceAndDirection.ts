@@ -1,4 +1,4 @@
-import {Direction} from "../Game/_exports";
+import {Direction} from "../../Game/_exports";
 
 export class DistanceAndDirection {
     constructor(

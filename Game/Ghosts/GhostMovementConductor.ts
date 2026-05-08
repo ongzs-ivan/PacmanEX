@@ -1,5 +1,5 @@
 import { GhostMovementMode } from "./GhostMovementMode";
-import { GameContext } from "../Core/_exports";
+import { GameContext } from "../../Core/_exports";
 import { GhostsLevelPatternProperties } from "./GhostsLevelPatternProperties";
 import {ModeAndDuration} from "./ModeAndDuration";
 

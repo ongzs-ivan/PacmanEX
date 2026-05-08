@@ -1,8 +1,8 @@
-import { PeriodicTimer, GameContext } from "../Core/_exports";
+import { PeriodicTimer, GameContext } from "../../Core/_exports";
 
-import { LevelProps } from "./LevelProps";
+import { LevelProps } from "../LevelProps";
 
-export class GhostFrightSession {
+export class GhostFrightEvent {
     private readonly eachFlashDurationMs: number = 166;
 
     private _amountOfGhostsEaten: number;

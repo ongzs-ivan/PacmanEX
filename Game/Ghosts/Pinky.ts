@@ -1,5 +1,5 @@
-import { Tile, MainWindow, Diags, Direction, DirectionToIndexLookup, Maze } from "../Game/_exports";
-import { Canvas, Point } from "../Core/_exports";
+import { Tile, MainWindow, Diags, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
+import { Canvas, Point } from "../../Core/_exports";
 
 import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
 import { GhostState } from "./GhostState";

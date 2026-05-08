@@ -1,4 +1,4 @@
-import { Maze } from "../Game/_exports";
+import { Maze } from "../../Game/_exports";
 
 import { Ghost } from "./Ghost";
 import { GhostMovementMode } from "./GhostMovementMode";

@@ -1,10 +1,10 @@
 import { Point } from "../Core/_exports";
 
-import { GhostsLevelPatternProperties } from "../Ghosts/GhostsLevelPatternProperties";
+import { GhostsLevelPatternProperties } from "./Ghosts/GhostsLevelPatternProperties";
 import { IntroCutScene } from "./IntroCutScene";
 import { FruitItem } from "./FruitItem";
 import { LevelProps } from "./LevelProps";
-import { FruitSession } from "./FruitSession";
+import { FruitEvent } from "./Events/FruitEvent";
 
 // perfect game at https://www.bing.com/videos/search?q=Perfect+Pac+Man&&view=detail&mid=AE586ACE933BE975ADD9AE586ACE933BE975ADD9&FORM=VRDGAR
 // cut scene 1 at 2:47
@@ -102,7 +102,7 @@ export class LevelStats {
 
      private static readonly startingAmountOfPills: number = 244;
     //private static readonly startingAmountOfPills: number = 25;
-      private readonly _fruitSession: FruitSession;
+      private readonly _fruitEvent: FruitEvent;
 
     constructor(public readonly levelNumber: number) {
         this._pillsRemaining = LevelStats.startingAmountOfPills;
@@ -110,11 +110,11 @@ export class LevelStats {
         this._currentMap = [];
         LevelStats.map.forEach(r => this._currentMap.push(r));
         const props = LevelStats.levelProps[levelNumber];
-        this._fruitSession = new FruitSession(props.fruit, props.fruitPoints);
+        this._fruitEvent = new FruitEvent(props.fruit, props.fruitPoints);
     }
 
-    get fruitSession():FruitSession {
-        return this._fruitSession;
+    get fruitEvent():FruitEvent {
+        return this._fruitEvent;
     }
 
     get pillsRemaining() {
@@ -189,7 +189,7 @@ export class LevelStats {
     }
 
     pillEaten(cellPosition: Point) {
-        this._fruitSession.pillEaten();
+        this._fruitEvent.pillEaten();
 
         --this._pillsRemaining;
 

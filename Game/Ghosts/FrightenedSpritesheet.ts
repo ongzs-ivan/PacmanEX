@@ -1,4 +1,4 @@
-import { FramePair } from "../Core/_exports";
+import { FramePair } from "../../Core/_exports";
 
 export class FrightenedSpritesheet {
     constructor(

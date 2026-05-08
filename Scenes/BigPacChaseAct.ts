@@ -1,9 +1,9 @@
-import { Canvas, EggTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
-import { LevelStats, Direction, GhostFrightSession } from "../Game/_exports";
+import { Canvas, SingleTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
+import { LevelStats, Direction, GhostFrightEvent } from "../Game/_exports";
 
 import { Engine } from "../Engine";
 import { ActUpdateResult } from "./ActUpdateResult";
-import { DirectionInfo, GhostNickname } from "../Ghosts/_exports";
+import { DirectionInfo, GhostNickname } from "../Game/Ghosts/_exports";
 import { AttractScenePacMan } from "./AttractScenePacMan";
 import { Act } from "./Act";
 import { AttractGhost } from "./AttractGhost";
@@ -17,10 +17,10 @@ export class BigPacChaseAct extends Act {
     private readonly _blinky: AttractGhost;
 
     private _pacPositions: StartEndPos;
-    private _pacTimer: EggTimer;
+    private _pacTimer: SingleTimer;
 
     private _blinkyPositions: StartEndPos;
-    private _blinkyTimer: EggTimer;
+    private _blinkyTimer: SingleTimer;
 
     private _finished: boolean;
 
@@ -32,11 +32,11 @@ export class BigPacChaseAct extends Act {
 
         const justOffScreen = new Point(250, 140);
 
-        this._blinkyTimer = new EggTimer(4500, () => {
+        this._blinkyTimer = new SingleTimer(4500, () => {
             this.reverseChase();
         });
 
-        this._pacTimer = new EggTimer(4750, () => { });
+        this._pacTimer = new SingleTimer(4750, () => { });
 
         this._pacMan = new AttractScenePacMan();
         this._pacMan.direction = Direction.Left;
@@ -99,14 +99,14 @@ export class BigPacChaseAct extends Act {
     }
 
     private reverseChase() {
-        this._blinkyTimer = new EggTimer(4600, () => { });
-        this._pacTimer = new EggTimer(4350, () => { this._finished = true; });
+        this._blinkyTimer = new SingleTimer(4600, () => { });
+        this._pacTimer = new SingleTimer(4350, () => { this._finished = true; });
 
         this._pacMan.visible = false;
         this._bigPacMan.visible = true;
 
         const s = new LevelStats(0);
-        const sess = new GhostFrightSession(s.levelProps);
+        const sess = new GhostFrightEvent(s.levelProps);
 
         this._blinky.direction = new DirectionInfo(Direction.Right, Direction.Right);
         this._blinky.frightSession = sess;

@@ -1,4 +1,4 @@
-import { Canvas, EggTimer, GameContext, Point, Sprite, Vector2D } from "../Core/_exports";
+import { Canvas, SingleTimer, GameContext, Point, Sprite, Vector2D } from "../Core/_exports";
 import { Tile } from "./Tile";
 import { MainWindow } from "./MainWindow";
 import { FruitItem } from "./FruitItem";
@@ -65,12 +65,12 @@ export class Fruit extends SimpleFruit {
 
     private _visible: boolean;
 
-    private readonly _showTimer: EggTimer;
+    private readonly _showTimer: SingleTimer;
 
     constructor() {
         super();
 
-        this._showTimer = new EggTimer(10000, () => { this.visible = false; });
+        this._showTimer = new SingleTimer(10000, () => { this.visible = false; });
 
         this.position = Tile.toCenterCanvas(new Vector2D(14, 17.2).toPoint());
 
@@ -102,7 +102,7 @@ export class Fruit extends SimpleFruit {
 
         const levelStats = MainWindow.gameStats.currentPlayerStats.levelStats;
 
-        if (levelStats.fruitSession.shouldShow) {
+        if (levelStats.fruitEvent.shouldShow) {
 
             this.visible = true;
             this._showTimer.reset();

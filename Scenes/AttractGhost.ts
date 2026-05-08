@@ -1,4 +1,4 @@
-import {GhostState, SimpleGhost, GhostNickname } from "../Ghosts/_exports";
+import {GhostState, SimpleGhost, GhostNickname } from "../Game/Ghosts/_exports";
 import {Direction} from "../Game/_exports";
 
 export class AttractGhost extends SimpleGhost {

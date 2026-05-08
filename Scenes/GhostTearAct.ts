@@ -1,9 +1,9 @@
 import { Direction } from "../Game/_exports";
-import { GhostNickname } from "../Ghosts/_exports";
+import { GhostNickname } from "../Game/Ghosts/_exports";
 
 import {
     Canvas,
-    EggTimer,
+    SingleTimer,
     GameContext,
     GeneralSprite,
     PeriodicTimer,
@@ -40,12 +40,12 @@ export class GhostTearAct extends Act {
     private _lookingBlinky: GeneralSprite;
 
     private readonly _pacPositions: StartEndPos;
-    private _pacTimer: EggTimer;
+    private _pacTimer: SingleTimer;
     private _tearTimer: PeriodicTimer;
     private _lookTimer: PeriodicTimer;
 
     private _blinkyPositions: StartEndPos;
-    private _blinkyTimer: EggTimer;
+    private _blinkyTimer: SingleTimer;
 
     private readonly _centerPoint = new Point(120, 140);
 
@@ -78,7 +78,7 @@ export class GhostTearAct extends Act {
             new Point(600, 113)
         ];
 
-        this._blinkyTimer = new EggTimer(4500, () => {
+        this._blinkyTimer = new SingleTimer(4500, () => {
             this.blinkyCaught();
         });
 
@@ -91,7 +91,7 @@ export class GhostTearAct extends Act {
 
         this._lookTimer = new PeriodicTimer(Number.MAX_VALUE, () => { });
 
-        this._pacTimer = new EggTimer(4750, () => { });
+        this._pacTimer = new SingleTimer(4750, () => { });
 
         this._pacMan = new AttractScenePacMan();
         this._pacMan.direction = Direction.Left;

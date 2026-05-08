@@ -1,5 +1,5 @@
-import { Canvas, Vector2D, Point } from "../Core/_exports";
-import { MainWindow, Diags, Direction, Maze } from "../Game/_exports";
+import { Canvas, Vector2D, Point } from "../../Core/_exports";
+import { MainWindow, Diags, Direction, Maze } from "../../Game/_exports";
 
 import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
 import { GhostState } from "./GhostState";

@@ -1,5 +1,5 @@
-import { FramePair, Point } from "../Core/_exports";
-import { Direction } from "../Game/_exports";
+import { FramePair, Point } from "../../Core/_exports";
+import { Direction } from "../../Game/_exports";
 
 export class GhostSpritesheetInfo {
     private _width: number = 16;

@@ -1,4 +1,4 @@
-export class EggTimer {
+export class SingleTimer {
     private readonly _duration: number;
 
     private _isPaused: boolean;

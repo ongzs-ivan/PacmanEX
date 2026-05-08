@@ -1,5 +1,5 @@
-import { MainWindow, GhostHouseDoor, Maze, Direction, DirectionToIndexLookup } from "../Game/_exports";
-import { Vector2D, Point, GameContext } from "../Core/_exports";
+import { MainWindow, GhostHouseDoor, Maze, Direction, DirectionToIndexLookup } from "../../Game/_exports";
+import { Vector2D, Point, GameContext } from "../../Core/_exports";
 
 import { Ghost } from "./Ghost";
 import { GhostMovementMode } from "./GhostMovementMode";

@@ -1,4 +1,4 @@
-import { GhostNickname, Ghost, Inky, Pinky, Blinky, Clyde } from "../Ghosts/_exports";
+import { GhostNickname, Ghost, Inky, Pinky, Blinky, Clyde } from "./Ghosts/_exports";
 
 import { Fruit } from "./Fruit";
 import { Maze } from "./Maze";

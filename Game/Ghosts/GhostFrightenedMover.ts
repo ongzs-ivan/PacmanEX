@@ -1,10 +1,10 @@
-import { Maze, MazeBounds } from "../Game/_exports";
-import { Point } from "../Core/_exports";
+import { Maze, MazeBounds } from "../../Game/_exports";
+import { Point } from "../../Core/_exports";
 
 import { Ghost } from "./Ghost";
 import { GhostMovementMode } from "./GhostMovementMode";
 import { GhostMover } from "./GhostMover";
-import { Engine } from "../Engine";
+import { Engine } from "../../Engine";
 
 /**
  * Moves the ghost in a psuedo-random fashion while they are 'frightened' (i.e. blue)

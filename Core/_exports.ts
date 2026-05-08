@@ -3,7 +3,7 @@ export { NullSprite } from "./NullSprite";
 export { GeneralSprite } from "./GeneralSprite";
 export { Keyboard } from "./Keyboard";
 export { PeriodicTimer } from "./PeriodicTimer";
-export { EggTimer } from "./EggTimer";
+export { SingleTimer } from "./SingleTimer";
 export { Vector2D } from "./Vector2D";
 export { Rect } from "./Rect";
 export { Point } from "./Point";

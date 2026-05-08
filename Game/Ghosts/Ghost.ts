@@ -1,5 +1,5 @@
-import { GameContext, Keyboard, Point, Vector2D } from "../Core/_exports";
-import { MainWindow, Constants, GhostFrightSession, Tile, IActor, Direction, DirectionToIndexLookup, Maze } from "../Game/_exports";
+import { GameContext, Keyboard, Point, Vector2D } from "../../Core/_exports";
+import { MainWindow, Constants, GhostFrightEvent, Tile, IActor, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
 
 import { GhostEyesBackToHouseMover } from "./GhostEyesBackToHouseMover";
 import { GhostInsideHouseMover } from "./GhostInsideHouseMover";
@@ -41,7 +41,7 @@ export class Ghost extends SimpleGhost implements IActor {
             this._tile = new Tile();
     }
 
-    powerPillEaten(session: GhostFrightSession) {
+    powerPillEaten(session: GhostFrightEvent) {
         super.powerPillEaten(session);
 
         if (this._state === GhostState.Eyes) {

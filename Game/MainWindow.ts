@@ -1,6 +1,6 @@
 import { Engine } from "../Engine";
-import { Ghost } from "../Ghosts/_exports";
-import { Keyboard, EggTimer, SceneUpdateResult, Point, Canvas, GameContext, Vector2D } from "../Core/_exports";
+import { Ghost } from "./Ghosts/_exports";
+import { Keyboard, SingleTimer, SceneUpdateResult, Point, Canvas, GameContext, Vector2D } from "../Core/_exports";
 import { Act, PacManDyingAct, LevelFinishedAct, ActUpdateResult, AttractAct} from "../Scenes/_exports";
 
 import { TimedSprite } from "./TimedSprite";
@@ -18,7 +18,7 @@ export class MainWindow {
 
     private static currentAct: Act;
     private static tempSprites: TimedSpriteList;
-    private static pauser: EggTimer;
+    private static pauser: SingleTimer;
 
     private readonly _gameCanvas: Canvas;
     private readonly _scoreCanvas: Canvas;
@@ -37,7 +37,7 @@ export class MainWindow {
         MainWindow.gameStats = new GameStats();
         MainWindow.tempSprites = new TimedSpriteList();
 
-        MainWindow.pauser = new EggTimer(0, () => { });
+        MainWindow.pauser = new SingleTimer(0, () => { });
 
         this._gameContext = new GameContext();
 
@@ -140,7 +140,7 @@ export class MainWindow {
         ghost.visible = false;
         MainWindow.actors.pacMan.visible = false;
 
-        MainWindow.pauser = new EggTimer(1000, () => {
+        MainWindow.pauser = new SingleTimer(1000, () => {
             ghost.visible = true;
             MainWindow.actors.pacMan.visible = true;
         });

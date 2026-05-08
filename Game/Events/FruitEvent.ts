@@ -1,6 +1,6 @@
-import { FruitItem } from "./FruitItem";
+import { FruitItem } from "../FruitItem";
 
-export class FruitSession {
+export class FruitEvent {
     private _toShowAt: number;
     private _counter: number;
     private _shouldShow: boolean;
