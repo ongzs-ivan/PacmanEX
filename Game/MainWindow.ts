@@ -77,6 +77,10 @@ export class MainWindow {
         return "game";
     }
 
+    /**
+     * @returns MainWindow updates the current act by running currentAct.update
+     * Act's are basically the game mode
+     */
     update(elapsed: number): SceneUpdateResult {
         this._gameContext.elapsed = elapsed;
         this._gameContext.totalGameTime += elapsed;

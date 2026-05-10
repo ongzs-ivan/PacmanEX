@@ -272,7 +272,7 @@ export class ChaseSubAct {
 
         this._ghosts.forEach(g => {
             g.direction.update(Direction.Right);
-            g.frightSession = sess;
+            g.frightEvent = sess;
             g.setFrightened();
             this._ghostPositions[g.nickName] = this._ghostPositions[g.nickName].reverse();
         });

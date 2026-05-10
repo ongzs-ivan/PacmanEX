@@ -109,7 +109,7 @@ export class BigPacChaseAct extends Act {
         const sess = new GhostFrightEvent(s.levelProps);
 
         this._blinky.direction = new DirectionInfo(Direction.Right, Direction.Right);
-        this._blinky.frightSession = sess;
+        this._blinky.frightEvent = sess;
         this._blinky.setFrightened();
         this._blinkyPositions = this._blinkyPositions.reverse();
 

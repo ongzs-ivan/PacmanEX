@@ -150,7 +150,7 @@ export class LevelStats {
 
         //     return p;
         // }
-       if (this.levelNumber === 0) {
+        if (this.levelNumber === 0) {
            p.scatter1 = 7;
            p.chase1 = 20;
            p.scatter2 = 7;
@@ -161,7 +161,7 @@ export class LevelStats {
            p.chase4 = Number.MAX_VALUE;
 
            return p;
-       }
+        }
 
         if (this.levelNumber >= 1 && this.levelNumber <= 3) {
             p.scatter1 = 7;

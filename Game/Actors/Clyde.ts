@@ -1,22 +1,21 @@
-import { Canvas, Vector2D, Point } from "../../Core/_exports";
-import { MainWindow, Diags, Direction, Maze } from "../../Game/_exports";
+import { Vector2D, Point } from "../../Core/_exports";
+import { MainWindow, Direction, Maze } from "../../Game/_exports";
 
-import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
-import { GhostState } from "../Behavior/GhostState";
-import { GhostNickname } from "../Behavior/GhostNickname";
 import { Ghost } from "./Ghost";
+import { GhostNickname } from "../Behavior/GhostNickname";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
 import { DirectionInfo } from "../Behavior/DirectionInfo";
-import {GhostMovementMode} from "../Behavior/GhostMovementMode";
+import { GhostMovementMode } from "../Behavior/GhostMovementMode";
 
 export class Clyde extends Ghost {
     private readonly _scatterTarget = new Point(0, 29);
 
     constructor(public readonly maze: Maze) {
-
         super("Clyde", GhostNickname.Clyde, maze, new Point(11.5, 12), Direction.Up);
 
-        this.getChaseTarget = this._getChaseTargetCell;
         this.getScatterTarget = ()=> this._scatterTarget;
+        this.getChaseTarget = this._getChaseTargetCell;
 
         this.houseOffset = 1;
     }
@@ -39,9 +38,8 @@ export class Clyde extends Ghost {
     // Pac-Man’s current position and orientation, and selecting the location four tiles straight 
     // ahead of him. Works when PacMan is facing left, down, or right, but when facing upwards, 
     // it's also four tiles to the left 
-    private _getChaseTargetCell = () => {
+    override _getChaseTargetCell = () => {
         var pacCellPos = MainWindow.actors.pacMan.getTile().index;
-
         const myPos = this.getTile().index;
 
         const distance = Math.abs(Vector2D.distanceBetween(myPos.toVector2D(), pacCellPos.toVector2D()));
@@ -52,12 +50,4 @@ export class Clyde extends Ghost {
 
         return this._scatterTarget;
     }
-
-    draw(canvas: Canvas): void {
-        super.draw(canvas);
-
-        if (Diags.enabled) {
-            this.maze.highlightCell(canvas, this._getChaseTargetCell(), "orange");
-        }
-    };
 }

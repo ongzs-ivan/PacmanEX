@@ -1,61 +1,28 @@
-1UP keeps flasshing at top
+--- [To-do] ---
+Add new game mode: Metal Gear Solid game mode
+- Display only things in line of sight
+    - Compass on top of screen will display closest Pill
+- Increase map size (at least by 1.5x the size)
+- New controls
+    - Zoom in/out controls
+- Add new types of ghosts
+    - Walky: Always patrols around Talky, never moves too far
+    - Talky: When alerted, can summon ghosts (in a radius) to its location 
+    - Smoky: Lazily patrols, takes "smoke breaks" often (patrol radius becomes very small)
+    - Grunty: Generic ghost
+    - Aside from Walky, Talky and Smoky that only has 1 of themselves, there are more than 1 Grunty's on the map
+- Add new Enemy Behaviors
+    - Chase Behavior affected by line of sight (e.g. duration of chase, how accurate their chase is)
+    - Patrol Behavior affected by player last known location (not shared between ghosts)
+- Game screen no longer totally cover the maps, follows the player instead
+- Win condition
+    - Clear level of all pills (still the same)
+    - After that condition is cleared, elevator/starting point reopens and player must escape there
 
-Show keyboard controls if keyboard present
+--- [To remove] ---
+- Multiplayer functionality
+- Use of credits/coins (so player only needs to press play to start)
+- Most of the Scenes (cutscenes), leave only the important ones like GameAct which is actually in charge of running the classic PacMan game mode
 
-Show swipe instructions on swipe icon
-
-Pause when lost focus?
-
-Bug - 2 player - p1 dies with a low score, p2 plays, high score increases, p1 then plays, gets higher score bug high score doesn't increase
-
-Keep screen alive on mobile browser
-
-X Ghost eyes in house do not go up and down with them
-
-X Control panel hide when loading screen on
-
-X Blog post
-
-X tidy up code
-    single type in single file
-    context/gameStuff etc.
-    
-X ensure demo mode finishes - needs pac man to die - watch in slowmo with vlc
-
-X Store high-score in cookie?
-X PNRG for ghost frightened mover
-X hide control panel
-X Pan control should allow finger to stay on screen
-X Remove direction buttons - have control panel cover whole screen
-X Pan touch conrols
-X mute button somewhere (top left, semi transparent)
-X remove 'name' from Act and derived
-X test on android emulator
-X Fix sound on android mobile browser (needs button click to play sound)
-X side canvas for coins, 1/2 player button and direction button
-X touch for buttons
-X when pacman is in any tile where he can change direction, then just set that direction:  the centering will bring it back in line
-X Fix bug where frightened movement never finished (near end of level)
-X Fix ghost eyes speed
-X Loading screen
-X Fix bugs in IE
-X Fix bugs in Edge
-X when updating an actor, if it's going up or down and it's not near the vertical center, then center it.
-    if it's going left or right and it's not near the horizontal center, then center it
-X match speed with real game
-X tally up speeds with thos in the pac man dossier
-X host on azure
-X ensure sound in all right areas - find usages on soundnames
-X sound for extra life - then match extra lives to real game
-X show 'player X game over' when game over
-X decrease players remaining on the player intro act
-X ensure ghosts reverse when eating pac eats power pill
-X BUG: ghosts stuck in house after pac dies
-X Cruise Elroy speed on blinky
-x sprite glitches
-X demo mode score increases when eating ghosts but not dots
-X play intro tune just one per game
-X insert coin screen - complete
-X sound on cut scenes
-X fix ghost exit house bug
-X score alignments
+--- [To fix (bugs)] ---
+- If the player eats a power pill while a ghost is standing right behind them, the game will hang

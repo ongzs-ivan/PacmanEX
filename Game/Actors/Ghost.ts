@@ -1,5 +1,5 @@
-import { GameContext, Keyboard, Point, Vector2D } from "../../Core/_exports";
-import { MainWindow, Constants, GhostFrightEvent, Tile, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
+import { Canvas, GameContext, Keyboard, Point, Vector2D } from "../../Core/_exports";
+import { MainWindow, Diags, Constants, GhostFrightEvent, Tile, Direction, DirectionToIndexLookup, Maze } from "../../Game/_exports";
 
 import { GhostEyesBackToHouseMover } from "../Behavior/GhostEyesBackToHouseMover";
 import { GhostInsideHouseMover } from "../Behavior/GhostInsideHouseMover";
@@ -12,7 +12,7 @@ import { GhostNickname } from "../Behavior/GhostNickname";
 import { GhostFrightenedMover } from "../Behavior/GhostFrightenedMover";
 import { GhostMover } from "../Behavior/GhostMover";
 import { DirectionInfo } from "../Behavior/DirectionInfo";
-import {GhostMovementMode} from "../Behavior/GhostMovementMode";
+import { GhostMovementMode } from "../Behavior/GhostMovementMode";
 
 export class Ghost extends SimpleGhost implements IActor {
     protected houseOffset: number;
@@ -41,6 +41,40 @@ export class Ghost extends SimpleGhost implements IActor {
             super(nickName, _startingDirection);
             this._tile = new Tile();
     }
+
+    update(context: GameContext): void {
+        super.update(context);
+
+        if (!this._isMoving) {
+            return;
+        }
+
+        this.recentreInLane();
+        this.collisionDetection();
+
+        if (this._tile.isInCenter) {
+            this._whenInCenterOfNextTile();
+            this._whenInCenterOfNextTile = () => { };
+        }
+
+        this.setMoverAndMode();
+
+        this.mover.update(context);
+
+        if (this._state === GhostState.Frightened) {
+            if (MainWindow.gameStats.currentPlayerStats.frightSession.isFinished) {
+                this._state = GhostState.Normal;
+            }
+        }
+    }
+
+    draw(canvas: Canvas): void {
+        super.draw(canvas);
+
+        if (Diags.enabled) {
+            this.maze.highlightCell(canvas, this._getChaseTargetCell(), "red");
+        }
+    };
 
     powerPillEaten(session: GhostFrightEvent) {
         super.powerPillEaten(session);
@@ -78,18 +112,13 @@ export class Ghost extends SimpleGhost implements IActor {
         this.visible = true;
         this._isMoving = true;
         this._isAnimating = true;
-
         this._state = GhostState.Normal;
         this._movementMode = GhostMovementMode.InHouse;
 
         this._whenInCenterOfNextTile = () => { };
-
         this._tile.set(Tile.toCenterCanvas(this._startingPoint));
-
         this.canvasPos = this._tile.center;
-
         this.direction = new DirectionInfo(this._startingDirection, this._startingDirection);
-
         this._spritesheetPos = this.spritesheetInfoNormal.getSourcePosition(this.direction.nextDirection, true);
     }
 
@@ -232,32 +261,6 @@ export class Ghost extends SimpleGhost implements IActor {
         this._isAnimating = false;
     }
 
-    update(context: GameContext): void {
-        super.update(context);
-
-        if (!this._isMoving) {
-            return;
-        }
-
-        this.recentreInLane();
-        this.collisionDetection();
-
-        if (this._tile.isInCenter) {
-            this._whenInCenterOfNextTile();
-            this._whenInCenterOfNextTile = () => { };
-        }
-
-        this.setMoverAndMode();
-
-        this.mover.update(context);
-
-        if (this._state === GhostState.Frightened) {
-            if (MainWindow.gameStats.currentPlayerStats.frightSession.isFinished) {
-                this._state = GhostState.Normal;
-            }
-        }
-    }
-
     private setNextScatterOrChaseMoverAndMode(): void {
         const nextMode = MainWindow.gameStats.currentPlayerStats.ghostMoveConductor.currentMode;
 
@@ -334,6 +337,12 @@ export class Ghost extends SimpleGhost implements IActor {
                 this._movementMode = GhostMovementMode.GoingToHouse;
             }
         }
+    }
+
+    _getChaseTargetCell = () => {
+        var pacCellPos = MainWindow.actors.pacMan.getTile().index;
+
+        return pacCellPos;
     }
 }
 

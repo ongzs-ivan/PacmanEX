@@ -1,16 +1,15 @@
-import { Canvas, Point } from "../../Core/_exports";
-import { MainWindow, Diags, Direction, Maze } from "../../Game/_exports";
+import { Point } from "../../Core/_exports";
+import { MainWindow, Direction, Maze } from "../../Game/_exports";
 
-import { GhostState } from "../Behavior/GhostState";
-import { GhostNickname } from "../Behavior/GhostNickname";
 import { Ghost } from "./Ghost";
-import  {GhostMovementMode } from "../Behavior//GhostMovementMode";
+import { GhostNickname } from "../Behavior/GhostNickname";
+import { GhostState } from "../Behavior/GhostState";
+import { GhostMovementMode } from "../Behavior/GhostMovementMode";
 
 export class Blinky extends Ghost {
     private readonly _scatterTarget = new Point(25, 0);
 
     constructor(public readonly maze: Maze) {
-
         super("Blinky", GhostNickname.Blinky, maze, new Point(13.5, 11), Direction.Left);
 
         this.getScatterTarget = ()=> this._scatterTarget;
@@ -33,7 +32,7 @@ export class Blinky extends Ghost {
     // Pac-Man’s current position and orientation, and selecting the location four tiles straight 
     // ahead of him. Works when PacMan is facing left, down, or right, but when facing upwards, 
     // it's also four tiles to the left 
-    private _getChaseTargetCell = () => {
+    override _getChaseTargetCell = () => {
         var pacCellPos = MainWindow.actors.pacMan.getTile().index;
 
         return pacCellPos;
@@ -59,13 +58,5 @@ export class Blinky extends Ghost {
 
         return levelProps.elroy1SpeedPc;
     }
-
-    draw(canvas: Canvas): void {
-        super.draw(canvas);
-
-        if (Diags.enabled) {
-            this.maze.highlightCell(canvas, this._getChaseTargetCell(), "red");
-        }
-    };
 }
 

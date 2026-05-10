@@ -40,6 +40,7 @@ export class Engine {
     }
 
     private update = () => {
+        ++Engine._pnrg;
         window.requestAnimationFrame(() => this.update());
         this.updateGame();
         this.updateDraw();
@@ -49,8 +50,6 @@ export class Engine {
         if (GameContext.keyboard.isKeyDown(Keyboard.p)) {
             return;
         }
-
-        ++Engine._pnrg;
         const now = window.performance.now();
         const elapsed = now - this._dateLoopLastRun;
         this._dateLoopLastRun = now;

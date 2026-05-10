@@ -9,7 +9,6 @@ import { EyesSpritesheetInfo } from "../Behavior/EyesSpritesheetInfo";
 import { FrightenedSpritesheet } from "../Behavior/FrightenedSpritesheet";
 import { GhostSpritesheet } from "../Behavior/GhostSpritesheet";
 import { GhostMovementMode } from "../Behavior/GhostMovementMode";
-import { Ghost } from "./Ghost";
 
 export class SimpleGhost extends Sprite {
     visible: boolean;
@@ -47,7 +46,17 @@ export class SimpleGhost extends Sprite {
         this._spritesheetPos = this.spritesheetInfoNormal.getSourcePosition(this._direction.nextDirection, true);
     }
 
-    set frightSession(session: GhostFrightEvent) {
+    update(context: GameContext): void {
+        this.updateAnimation(context);
+    }
+
+    draw(canvas: Canvas): void {
+        if (this.visible) {
+            canvas.drawSprite(this);
+        }
+    }
+
+    set frightEvent(session: GhostFrightEvent) {
         this._frightSession = session;
     }
 
@@ -89,16 +98,6 @@ export class SimpleGhost extends Sprite {
 
     set position(pos: Point) {
         this.canvasPos = pos;
-    }
-
-    update(context: GameContext): void {
-        this.updateAnimation(context);
-    }
-
-    draw(canvas: Canvas): void {
-        if (this.visible) {
-            canvas.drawSprite(this);
-        }
     }
 
     updateAnimation(context: GameContext): void {
