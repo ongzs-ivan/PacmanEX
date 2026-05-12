@@ -1,10 +1,7 @@
 import { FruitItem } from "./FruitItem";
-import { IntroCutScene } from "./IntroCutScene";
 
 export class LevelProps {
-    constructor(
-        public readonly introCutScene: IntroCutScene,           
-
+    constructor(      
         public readonly fruit: FruitItem,                       
         public readonly fruitPoints: number,                    
 

@@ -1,8 +1,7 @@
 import { Canvas } from "../Core/_exports";
 
-import { Act } from "./Act";
-import {GameOverAct} from "./GameOverAct";
-import { TextPoints } from "./TextPoints";
+import { Act, TextPoints } from "./Act";
+import { GameOverAct } from "./GameOverAct";
 
 /**
  * Draws game over and player X

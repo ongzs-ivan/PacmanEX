@@ -1,7 +1,7 @@
 import { Engine } from "../Engine";
 import { Ghost } from "./Actors/Ghost";
 import { Keyboard, SingleTimer, SceneUpdateResult, Point, Canvas, GameContext, Vector2D } from "../Core/_exports";
-import { Act, PacManDyingAct, LevelFinishedAct, ActUpdateResult, AttractAct} from "../Scenes/_exports";
+import { Act, PacManDyingAct, LevelFinishedAct, ActUpdateResult, AttractAct, GameAct } from "../Scenes/_exports";
 
 import { TimedSprite } from "./TimedSprite";
 import { TimedSpriteList } from "./TimedSpriteList";
@@ -9,8 +9,7 @@ import { ScoreSprite } from "./ScoreSprite";
 import { GameStats } from "./GameStats";
 import { StatusPanel } from "./StatusPanel";
 import { ScorePanel } from "./ScorePanel";
-import {Actors} from "./Actors/Actors";
-
+import { Actors } from "./Actors/Actors";
 
 export class MainWindow {
     static gameStats: GameStats;
@@ -54,6 +53,7 @@ export class MainWindow {
         this._scorePanel = new ScorePanel(this._scoreCanvas);
         this._statusPanel = new StatusPanel(this._statusCanvas);
 
+        // attract -> start button -> player intro -> game
         MainWindow.currentAct = new AttractAct();
 
         // POINTER: You can change the starting Act by using something like:

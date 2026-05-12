@@ -1,12 +1,10 @@
 import { Canvas, GameContext, Keyboard } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
-import { AttractAct } from "./AttractAct";
-import { StartButtonAct } from "./StartButtonAct";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
-import {Engine} from "../Engine";
-import { TextPoints } from "./TextPoints";
+import { AttractAct } from "../Scenes/AttractAct";
+import { StartButtonAct } from "../Scenes/StartButtonAct";
+import { Act, ActUpdateResult, TextPoints } from "../Scenes/Act";
+import { Engine } from "../Engine";
 
 /**
  * This is almost identical to the game act, except it transitions to the 'attract screen act'.

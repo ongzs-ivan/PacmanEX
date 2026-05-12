@@ -19,6 +19,5 @@ export { LevelProps } from "./LevelProps";
 export { TimedSprite } from "./TimedSprite";
 export { TimedSpriteList } from "./TimedSpriteList";
 export { FruitEvent } from "./Events/FruitEvent";
-export { IntroCutScene } from "./IntroCutScene";
 export { MainWindow } from "./MainWindow";
 export { GameSoundPlayer } from "./GameSoundPlayer";

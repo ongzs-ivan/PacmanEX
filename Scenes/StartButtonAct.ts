@@ -1,10 +1,9 @@
-import { Canvas, GameContext, Keyboard, Point } from "../Core/_exports";
-import { MainWindow } from "../Game/_exports";
-
-import { PlayerIntroAct } from "./PlayerIntroAct";
 import { Engine } from "../Engine";
-import { ActUpdateResult } from "./ActUpdateResult";
-import { Act } from "./Act";
+import { Canvas, GameContext, Keyboard, Point } from "../Core/_exports";
+
+import { MainWindow } from "../Game/_exports";
+import { Act, ActUpdateResult } from "./Act";
+import { PlayerIntroAct } from "./PlayerIntroAct";
 
 /**
  * The 'act' that shows the '1 or 2 players' screen.

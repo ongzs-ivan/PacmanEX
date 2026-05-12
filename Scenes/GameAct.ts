@@ -2,8 +2,7 @@ import { GameSoundPlayer, MainWindow } from "../Game/_exports";
 import { Canvas, GameContext, Keyboard } from "../Core/_exports";
 
 import { Engine } from "../Engine";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
+import { Act, ActUpdateResult } from "./Act";
 import { PlayerIntroAct } from "./PlayerIntroAct";
 
 /**

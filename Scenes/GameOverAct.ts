@@ -4,9 +4,7 @@ import { MainWindow } from "../Game/_exports";
 import { StartButtonAct } from "./StartButtonAct";
 import { Engine } from "../Engine";
 import { AttractAct } from "./AttractAct";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
-import { TextPoints } from "./TextPoints";
+import { Act, ActUpdateResult, TextPoints } from "./Act";
 
 export class GameOverAct extends Act {
     private _progress: number = 0;

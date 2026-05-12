@@ -7,7 +7,7 @@ Add new game mode: Metal Gear Solid game mode
     - Zoom in/out controls
 - Add new types of ghosts
     - Walky: Always patrols around Talky, never moves too far
-    - Talky: When alerted, can summon ghosts (in a radius) to its location 
+    - Talky: When alerted, summons Walky to the last position it saw the player
     - Smoky: Lazily patrols, takes "smoke breaks" often (patrol radius becomes very small)
     - Grunty: Generic ghost
     - Aside from Walky, Talky and Smoky that only has 1 of themselves, there are more than 1 Grunty's on the map
@@ -20,9 +20,11 @@ Add new game mode: Metal Gear Solid game mode
     - After that condition is cleared, elevator/starting point reopens and player must escape there
 
 --- [To remove] ---
-- Multiplayer functionality
-- Use of credits/coins (so player only needs to press play to start)
-- Most of the Scenes (cutscenes), leave only the important ones like GameAct which is actually in charge of running the classic PacMan game mode
+- Remove functions until we're left with a barebone Pacman game
+    - Arcade/multiplayer functionality (2P/coins)
+    - Use of credits/coins (so player only needs to press play to start)
+    X Cutscene Acts (not to be confused with all Acts in general which act as game modes)
 
 --- [To fix (bugs)] ---
 - If the player eats a power pill while a ghost is standing right behind them, the game will hang
+- Number of lives not correctly displayed

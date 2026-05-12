@@ -2,11 +2,8 @@ import { PeriodicTimer, Canvas, GameContext } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
 import { GameAct } from "./GameAct";
-import { DemoAct } from "./DemoAct";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
+import { Act, ActUpdateResult, TextPoints } from "./Act";
 import { Engine } from "../Engine";
-import { TextPoints } from "./TextPoints";
 
 /**
  * Introduces the current player, shows player X and ready for 3 seconds, then ghosts and ready for 3 seconds.
@@ -87,7 +84,8 @@ export class PlayerIntroAct extends Act {
     }
 
     get nextAct(): Act {
-        return this._isDemoMode ? new DemoAct() : new GameAct();
+        //return this._isDemoMode ? new DemoAct() : new GameAct();
+        return new GameAct();
     }
 }
 

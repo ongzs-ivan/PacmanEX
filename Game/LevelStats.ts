@@ -1,43 +1,28 @@
 import { Point } from "../Core/_exports";
 
 import { GhostsLevelPatternProperties } from "./Behavior/GhostsLevelPatternProperties";
-import { IntroCutScene } from "./IntroCutScene";
 import { FruitItem } from "./FruitItem";
 import { LevelProps } from "./LevelProps";
 import { FruitEvent } from "./Events/FruitEvent";
 
-// perfect game at https://www.bing.com/videos/search?q=Perfect+Pac+Man&&view=detail&mid=AE586ACE933BE975ADD9AE586ACE933BE975ADD9&FORM=VRDGAR
-// cut scene 1 at 2:47
-// cut scene 2 at 6:50
-// cut scene 3 at 12:16 (snail thing)
-//
-
-
-// max level 21
-
 export class LevelStats {
-    private static levelProps: LevelProps[] = [ //                                  pn   pd  gn  gt                      pf  pfd gf
-        new LevelProps(IntroCutScene.None, FruitItem.Cherry,	            300,    80,  71, 80, 40, 30, 90,   15,  95,  90, 79, 50, 6, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Strawberry,            300,    90,  79, 85, 45, 30, 90,   15, 95,   95, 83, 55, 5, 5),
-        new LevelProps(IntroCutScene.BigPac, FruitItem.Peach,               500,    90,  79, 85, 45, 40, 90,   20, 95,   95, 83, 55, 4, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Peach,                 500,    90,  79, 85, 45, 40, 90,   20, 95,   95, 83, 55, 3, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Apple,                 700,    100, 87, 95, 50, 40, 100,  20, 105, 100, 87, 60, 2, 5),
-        new LevelProps(IntroCutScene.GhostSnagged, FruitItem.Apple,         700,    100, 87, 95, 50, 50, 100,  25, 105, 100, 87, 60, 2, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Grape,                 1000,   100, 87, 95, 50, 50, 100,  25, 105, 100, 87, 60, 2, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Grape,                 1000,   100, 87, 95, 50, 50, 100,  25, 105, 100, 87, 60, 1, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Galaxian,              2000,   100, 87, 95, 50, 60, 100,  30, 105, 100, 87, 60, 5, 3),
-        new LevelProps(IntroCutScene.TornGhostAndWorm, FruitItem.Galaxian,  2000,   100, 87, 95, 50, 60, 100,  30, 105, 100, 87, 60, 2, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Bell,                  3000,   100, 87, 95, 50, 60, 100,  30, 105, 100, 87, 60, 1, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Bell,                  3000,   100, 87, 95, 50, 80, 100,  40, 105, 100, 87, 60, 1, 3),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 80, 100,  40, 105, 100, 87, 60, 1, 3),
-        new LevelProps(IntroCutScene.TornGhostAndWorm, FruitItem.Key,       5000,   100, 87, 95, 50, 80, 100,  40, 105, 100, 87, 60, 3, 5),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 100, 100, 50, 105, 100, 87, 60, 1, 3),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 100, 100, 50, 105, 100, 87, 60, 1, 3),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 100, 100, 50, 105, 0,    0,  0, 0, 0),
-        new LevelProps(IntroCutScene.TornGhostAndWorm, FruitItem.Key,       5000,   100, 87, 95, 50, 100, 100, 50, 105, 100, 87, 60, 1, 3),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 120, 100, 60, 105, 0,    0,  0, 0, 0),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   100, 87, 95, 50, 120, 100, 60, 105, 0,    0,  0, 0, 0),
-        new LevelProps(IntroCutScene.None, FruitItem.Key,                   5000,   90,  79, 95, 50, 120, 100, 60, 105, 0,    0,  0, 0, 0)];
+    private static levelProps: LevelProps[] = [ 
+        new LevelProps(FruitItem.Cherry,	 300,    80,  71, 80, 40, 30,   90,   15,  95,   90,  79, 50, 6, 5),
+        new LevelProps(FruitItem.Strawberry, 300,    90,  79, 85, 45, 30,   90,   15,  95,   95,  83, 55, 5, 5),
+        new LevelProps(FruitItem.Peach,      500,    90,  79, 85, 45, 40,   90,   20,  95,   95,  83, 55, 3, 5),
+        new LevelProps(FruitItem.Apple,      700,    100, 87, 95, 50, 40,   100,  20,  105,  100, 87, 60, 2, 5),
+        new LevelProps(FruitItem.Grape,      1000,   100, 87, 95, 50, 50,   100,  25,  105,  100, 87, 60, 2, 5),
+        new LevelProps(FruitItem.Grape,      1000,   100, 87, 95, 50, 50,   100,  25,  105,  100, 87, 60, 1, 5),
+        new LevelProps(FruitItem.Galaxian,   2000,   100, 87, 95, 50, 60,   100,  30,  105,  100, 87, 60, 5, 3),
+        new LevelProps(FruitItem.Bell,       3000,   100, 87, 95, 50, 60,   100,  30,  105,  100, 87, 60, 1, 5),
+        new LevelProps(FruitItem.Bell,       3000,   100, 87, 95, 50, 80,   100,  40,  105,  100, 87, 60, 1, 3),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 80,   100,  40,  105,  100, 87, 60, 1, 3),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 100,  100,  50,  105,  100, 87, 60, 1, 3),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 100,  100,  50,  105,  100, 87, 60, 1, 3),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 100,  100,  50,  105,  0,    0,  0, 0, 0),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 120,  100,  60,  105,  0,    0,  0, 0, 0),
+        new LevelProps(FruitItem.Key,        5000,   100, 87, 95, 50, 120,  100,  60,  105,  0,    0,  0, 0, 0),
+        new LevelProps(FruitItem.Key,        5000,   90,  79, 95, 50, 120,  100,  60,  105,  0,    0,  0, 0, 0)];
     // new LevelProps(Fruit.Cherry,		100,  80,  71, 75, 40, 20,  80,  10,  85,  90, 79, 50, 6, 5),
     // new LevelProps(Fruit.Strawberry,	300,  90,  79, 85, 45, 30,  90,  15,  95,  95, 83, 55, 5, 5),
     // new LevelProps(Fruit.Peach,			500,  90,  79, 85, 45, 40,  90,  20,  95,  95, 83, 55, 4, 5),
@@ -100,9 +85,8 @@ export class LevelStats {
         // 0,30                   //27,29
     ];
 
-     private static readonly startingAmountOfPills: number = 244;
-    //private static readonly startingAmountOfPills: number = 25;
-      private readonly _fruitEvent: FruitEvent;
+    private static readonly startingAmountOfPills: number = 244;
+    private readonly _fruitEvent: FruitEvent;
 
     constructor(public readonly levelNumber: number) {
         this._pillsRemaining = LevelStats.startingAmountOfPills;
@@ -130,7 +114,7 @@ export class LevelStats {
         return LevelStats.levelProps[index];
     }
 
-    getLevelProps(level: number): LevelProps {
+    getLevelPropsAt(level: number): LevelProps {
         return LevelStats.levelProps[level];
     }
 
@@ -190,12 +174,10 @@ export class LevelStats {
 
     pillEaten(cellPosition: Point) {
         this._fruitEvent.pillEaten();
-
         --this._pillsRemaining;
 
         const oldString = this._currentMap[cellPosition.y];
         const newString = this.replaceCharacter(oldString, "+", cellPosition.x);
-
         this._currentMap[cellPosition.y] = newString;
     }
 

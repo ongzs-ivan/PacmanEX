@@ -4,10 +4,6 @@ import { Vector2D } from "./Vector2D";
 import { Canvas } from "./Canvas";
 
 export abstract class Sprite {
-
-    loadContent(): void { // nothing 
-    };
-
     abstract get position():Point;
 
     abstract update(context: GameContext): void;

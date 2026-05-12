@@ -1,6 +1,6 @@
 import { GhostState, GhostNickname } from "../Game/Behavior/_exports";
 import { SimpleGhost } from "../Game/Actors/SimpleGhost";
-import {Direction} from "../Game/_exports";
+import { Direction } from "../Game/_exports";
 
 export class AttractGhost extends SimpleGhost {
     private _alive: boolean;

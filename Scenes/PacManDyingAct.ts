@@ -3,12 +3,11 @@ import { MainWindow } from "../Game/_exports";
 
 import { Engine } from "../Engine";
 import { AttractAct } from "./AttractAct";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
+import { Act, ActUpdateResult } from "./Act";
 import { GameOverAct } from "./GameOverAct";
 import { PlayerIntroAct } from "./PlayerIntroAct";
-import {PlayerGameOverAct} from "./PlayerGameOverAct";
-import {GameStorage} from "../GameStorage";
+import { PlayerGameOverAct } from "./PlayerGameOverAct";
+import { GameStorage } from "../GameStorage";
 
 /**
  * An act that shows Pacman dying.  Transitions to either: the 'attract act' (if in demo mode), the 'game over act' if all players are dead,

@@ -74,7 +74,7 @@ export class StatusPanel {
 
         // starting from the right
         for (let i = lowestLevel; i <= highestLevel; i++, x-=16) {
-            const item = MainWindow.gameStats.currentPlayerStats.levelStats.getLevelProps(i).fruit;
+            const item = MainWindow.gameStats.currentPlayerStats.levelStats.getLevelPropsAt(i).fruit;
             
             this._fruit.setFruitItem(item);
             this._fruit.position = new Point(x, 10);

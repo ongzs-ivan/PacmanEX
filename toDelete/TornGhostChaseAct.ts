@@ -1,11 +1,10 @@
-import { Canvas, SingleTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
-import { Direction } from "../Game/_exports";
-
 import { Engine } from "../Engine";
-import { ActUpdateResult } from "./ActUpdateResult";
+import { Canvas, SingleTimer, GameContext, GeneralSprite, Point, Vector2D } from "../Core/_exports";
+
+import { Act, ActUpdateResult } from "../Scenes/Act";
+import { StartEndPos } from "./StartEndPos";
+import { Direction } from "../Game/_exports";
 import { AttractScenePacMan } from "./AttractScenePacMan";
-import { Act } from "./Act";
-import {StartEndPos} from "./StartEndPos";
 
 export class TornGhostChaseAct extends Act {
     private readonly _pacMan: AttractScenePacMan;

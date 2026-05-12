@@ -1,24 +1,12 @@
+import { Engine } from "../Engine";
+import { Canvas, SingleTimer, GameContext, GeneralSprite, PeriodicTimer, NullSprite, Point, Vector2D } from "../Core/_exports";
+
 import { Direction } from "../Game/_exports";
 import { GhostNickname } from "../Game/Behavior/_exports";
-
-import {
-    Canvas,
-    SingleTimer,
-    GameContext,
-    GeneralSprite,
-    PeriodicTimer,
-    NullSprite,
-    Point,
-    Vector2D
-    } from "../Core/_exports";
-
-import { Engine } from "../Engine";
-
-import { ActUpdateResult } from "./ActUpdateResult";
 import { AttractScenePacMan } from "./AttractScenePacMan";
-import { Act } from "./Act";
+import { Act, ActUpdateResult } from "../Scenes/Act";
 import { AttractGhost } from "./AttractGhost";
-import {StartEndPos} from "./StartEndPos";
+import { StartEndPos } from "./StartEndPos";
 
 enum Stage {
     MovingBlinky,

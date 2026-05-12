@@ -1,9 +1,8 @@
-export { AttractScenePacMan } from "./AttractScenePacMan";
-export { AttractGhost } from "./AttractGhost";
 export { AttractAct } from "./AttractAct";
-export { Act } from "./Act";
+export { Act, ActUpdateResult } from "./Act";
 export { PacManDyingAct } from "./PacManDyingAct";
 export { LevelFinishedAct } from "./LevelFinishedAct";
-export { ChaseSubAct } from "./ChaseSubAct";
-export { TornGhostChaseAct } from "./TornGhostChaseAct";
-export { ActUpdateResult } from "./ActUpdateResult";
+export { PlayerIntroAct } from "./PlayerIntroAct";
+export { StartButtonAct } from "./StartButtonAct";
+export { GameAct } from "./GameAct";
+export { GameOverAct } from "./GameOverAct";

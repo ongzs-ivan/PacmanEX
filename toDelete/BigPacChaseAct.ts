@@ -2,12 +2,11 @@ import { Canvas, SingleTimer, GameContext, GeneralSprite, Point, Vector2D } from
 import { LevelStats, Direction, GhostFrightEvent } from "../Game/_exports";
 
 import { Engine } from "../Engine";
-import { ActUpdateResult } from "./ActUpdateResult";
 import { DirectionInfo, GhostNickname } from "../Game/Behavior/_exports";
 import { AttractScenePacMan } from "./AttractScenePacMan";
-import { Act } from "./Act";
+import { Act, ActUpdateResult } from "../Scenes/Act";
 import { AttractGhost } from "./AttractGhost";
-import {StartEndPos} from "./StartEndPos";
+import { StartEndPos } from "./StartEndPos";
 
 export class BigPacChaseAct extends Act {
     private readonly _pacMan: AttractScenePacMan;

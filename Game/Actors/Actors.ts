@@ -24,7 +24,6 @@ export class Actors {
 
     constructor() {
         this._maze = new Maze();
-        this._maze.loadContent();
 
         this._pacMan = new PacMan();
         this._fruit = new Fruit();
@@ -34,8 +33,6 @@ export class Actors {
         this._inky = new Inky(this._maze, this._blinky);
         this._clyde = new Clyde(this._maze);
 
-        //debug:
-//        this._ghosts = [this.blinky];
         this._ghosts = [
             this._blinky, this._pinky, this._inky, this._clyde
         ];

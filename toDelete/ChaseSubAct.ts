@@ -4,10 +4,10 @@ import { PowerPill } from "../Game/Actors/PowerPill";
 import { SingleTimer, Canvas, GameContext, Point } from "../Core/_exports";
 import { GhostNickname } from "../Game/Behavior/_exports";
 
-import { ActUpdateResult } from "./ActUpdateResult";
+import { ActUpdateResult } from "../Scenes/Act";
 import { AttractScenePacMan } from "./AttractScenePacMan";
 import { AttractGhost } from "./AttractGhost";
-import {StartEndPos} from "./StartEndPos";
+import { StartEndPos } from "./StartEndPos";
 
 class TimerList {
     private _timers: SingleTimer[];

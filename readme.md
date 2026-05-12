@@ -3,7 +3,7 @@
 Pacman clone made in TypeScript. 
 
 The goal of this project was both to learn TypeScript and a dedicated engine to run Pacman.
-This project is based on Steve Gunn's breakdown of [PacMan](https://github.com/SteveDunn/Pacman-TypeScript)
+This project is based on Steve Gunn's faithful reproduction of [PacMan](https://github.com/SteveDunn/Pacman-TypeScript)
 
 ## License
 GNU GENERAL PUBLIC LICENSE Version 3 [#](LICENSE.txt)

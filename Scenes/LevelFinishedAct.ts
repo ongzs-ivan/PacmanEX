@@ -1,14 +1,9 @@
 import { PeriodicTimer, Canvas, GameContext } from "../Core/_exports";
 import { MainWindow } from "../Game/_exports";
 
-import { TornGhostChaseAct } from "./TornGhostChaseAct";
-import { GhostTearAct } from "./GhostTearAct";
-import { IntroCutScene } from "../Game/IntroCutScene";
 import { Engine } from "../Engine";
-import { Act } from "./Act";
-import { ActUpdateResult } from "./ActUpdateResult";
+import { Act, ActUpdateResult } from "./Act";
 import { PlayerIntroAct } from "./PlayerIntroAct";
-import {BigPacChaseAct} from "./BigPacChaseAct";
 
 /**
  * When the level is finished, the screen flashes white and blue.
@@ -56,26 +51,7 @@ export class LevelFinishedAct extends Act {
     }
 
     get nextAct(): Act {
-        const cutScene = MainWindow.gameStats.currentPlayerStats.levelStats.levelProps.introCutScene;
-        const playerIntroAct = new PlayerIntroAct(false);
-        
-        if (cutScene === IntroCutScene.None) {
-            return playerIntroAct;
-        }
-        
-        if (cutScene === IntroCutScene.BigPac) {
-            return new BigPacChaseAct(playerIntroAct);
-        }
-        
-        if (cutScene === IntroCutScene.GhostSnagged) {
-            return new GhostTearAct(playerIntroAct);
-        }
-        
-        if (cutScene === IntroCutScene.TornGhostAndWorm) {
-            return new TornGhostChaseAct(playerIntroAct);
-        }
-
-        throw new Error(`Don't know how to handle cut scene of ${cutScene}`);
+        return new PlayerIntroAct(false);
     }
 
     draw(canvas: Canvas) {
